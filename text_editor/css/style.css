@@ -1,0 +1,43 @@
+.textEditor_popup{
+	width: 300px;
+	min-height: 300px;
+	margin: 0px auto;
+	background: white;
+}
+.textSettingsBar{
+width: 300px;
+	min-height: 50px;
+	background: #2550BC;
+		
+}
+.textSettings{
+	color: white;
+	    padding: 20px 27px;
+    font-size: 20px;
+}
+.fonttypeBar{
+	width: 300px;
+	min-height: 50px;	
+}
+.textstyle,.aligntext{
+	width: 300px;
+	min-height: 20px;
+	list-style-type: none;
+	padding: 0px;
+}
+.eachstyle{
+	width:72px;
+	min-height: 20px;
+	display: inline-block;
+	margin-top: 10px;
+}
+
+.bold{
+  font-weight:bold;
+}
+.italic{
+  font-style :italic;
+}
+.underline{
+ text-decoration: underline;
+} 

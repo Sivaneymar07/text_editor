@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>text_editor</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/font-awesome-4.7.0">
+	<link rel="stylesheet" href="assets/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+
+
+<div class="textEditor_popup" ng-app="appBuilerApp" ng-controller="StylesCtrl">
+<div class="textSettingsBar">
+<p class="textSettings">Text Settings
+</p>
+</div>
+<div class="fonttypeBar">
+<h1 contenteditable="true" id="text" ng-style="{'font-family': text.font, 'font-size': text.size + 'px'}">Some Text Here.User editable text</h1>
+<p class="Fonts">Fonts
+</p>
+<select class="fontType" ng-options="font for font in fonts" ng-model="text.font"></select>
+
+</div>
+<hr color="grey">
+<div class="fontSize">
+<p class="Fontsize">Font Size(px)
+</p>
+ <input min="12" max="24" ng-model="text.size" type="range">
+</div>
+ <hr color="grey">
+
+<ul class="textstyle">
+  <li class="eachstyle"><button class="boldText"><i class="fa fa-bold" aria-hidden="true"></i></button></li>
+  <li class="eachstyle"><button class="italicText"><i class="fa fa-italic" aria-hidden="true"></i></button></li>
+  <li class="eachstyle"><button  class="underlineText"><i class="fa fa-underline" aria-hidden="true"></i></button></li>
+
+</ul>  
+ <hr color="grey">
+<ul class="aligntext">
+  <li class="eachstyle"><button class="btnjustify"><i class="fa fa-align-justify" aria-hidden="true"></i></button></li>
+  <li class="eachstyle"><button class="btnright"><i class="fa fa-align-right" aria-hidden="true"></i></button></li>
+  <li class="eachstyle"><button class="btncenter"><i class="fa fa-align-center" aria-hidden="true"></i></button></li>
+  <li class="eachstyle"><button class="btnleft"><i class="fa fa-align-left" aria-hidden="true"></i></button></li>
+</ul>
+
+</div>
+<script>
+	var app=
+    angular.module("appBuilerApp", [])
+    app.controller("StylesCtrl", function ($scope) {
+        $scope.fonts = [
+            "Arial",
+            "Tahoma",
+            "Helvetica",
+            "Verdana",
+            "Sans-serif",
+            "Impact",
+            "Courier New",
+            "Georgia",
+            "Arial Black",
+            "Times New Roman",
+            "Bold",
+            "Italic"
+        ];
+
+        $scope.text = {
+            font: "Arial",
+            size: 10
+        };
+    });
+    $(document).ready(function(){
+$('.boldText').click(function(){
+   $('#text').toggleClass("bold");
+});
+$('.italicText').click(function(){
+  $('#text').toggleClass("italic");
+});
+$('.underlineText').click(function(){
+  $('#text').toggleClass("underline");
+});
+
+});
+    $(document).ready(function(){
+  
+  $('.btncenter').on('click', function(){
+    $('#text').css({'text-align':'center'});
+  })
+
+});
+    $(document).ready(function(){
+  
+  $('.btnleft').on('click', function(){
+    $('#text').css({'text-align':'left'});
+  })
+
+});
+    $(document).ready(function(){
+  
+  $('.btnright').on('click', function(){
+    $('#text').css({'text-align':'right'});
+  })
+
+});
+    $(document).ready(function(){
+  
+  $('.btnjustify').on('click', function(){
+    $('#text').css({'text-align':'justify'});
+  })
+
+});
+</script>
+</body>
+</html>
